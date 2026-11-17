@@ -1,0 +1,40 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> releaseproof@1.0.0 test
+> node --test app-tests/*.test.js
+
+✔ quorum success accepts agreement and rejects disagreement (3.365887ms)
+✔ successful leader receipt is accepted (0.308346ms)
+✔ wallet address changes stop a write before requesting a signature (1.170851ms)
+✔ invalid submitted hash cannot start tracking (0.584955ms)
+✔ finality tracker surfaces contract failure despite finalized transaction (1.115086ms)
+✔ finality tracker rejects EVM reverts (0.599603ms)
+✔ finality tracker preserves transaction for retry after timeout (0.463257ms)
+✔ consensus ID is decoded from the SDK NewTransaction event (6.025726ms)
+✔ every packaged live patch and historical snapshot verifies (28.611707ms)
+✔ patch tampering is caught before export (2.954458ms)
+✔ old history cannot silently point to a different evidence subset (4.770663ms)
+✔ canonicalization agrees with Python JSON for Unicode evidence (1.425117ms)
+✔ registration form creates immutable contract arguments (1.468498ms)
+✔ rejects branch instead of commit (0.396432ms)
+✔ rejects same comparison endpoints (0.271057ms)
+✔ rejects URL instead of repository (0.290784ms)
+✔ rejects path traversal (0.523941ms)
+✔ rejects four initial files (0.520514ms)
+✔ rejects empty claims (0.268302ms)
+✔ rejects UTF-8 oversized title (0.258895ms)
+✔ rejects oversized assertion (0.191258ms)
+✔ duplicate paths and seven unique files are rejected (0.532367ms)
+✔ search, gate and watchlist filters compose (2.000905ms)
+✔ export carries contract, provenance, history and receipts (1.422512ms)
+✔ wallet adds unknown Studionet then confirms active network (0.657601ms)
+✔ rejected network switch is not treated as permission to add a chain (0.45412ms)
+✔ wallet cannot claim a switch succeeded while keeping another chain (0.32646ms)
+ℹ tests 27
+ℹ suites 0
+ℹ pass 27
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 903.632564

@@ -1,0 +1,34 @@
+node_modules/
+dist/
+.venv/
+__pycache__/
+.pytest_cache/
+.sites-runtime/
+artifacts/
+private-*.json
+.env
+.env.*
+*.pyc
+live-demo/
+live-deployment/
+responsive-check.html
+
+# Dependencies
+node_modules/
+
+# Python cache
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Build cache
+.vite/

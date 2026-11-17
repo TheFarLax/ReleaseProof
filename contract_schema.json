@@ -1,0 +1,107 @@
+{
+  "ctor": {
+    "params": [],
+    "kwparams": {}
+  },
+  "methods": {
+    "audit_release": {
+      "params": [
+        [
+          "release_id",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "string",
+      "payable": false
+    },
+    "challenge_claim": {
+      "params": [
+        [
+          "release_id",
+          "string"
+        ],
+        [
+          "claim_id",
+          "string"
+        ],
+        [
+          "new_paths_json",
+          "string"
+        ],
+        [
+          "reason",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "string",
+      "payable": false
+    },
+    "get_policy": {
+      "params": [],
+      "kwparams": {},
+      "readonly": true,
+      "ret": {
+        "$dict": "any"
+      }
+    },
+    "get_release": {
+      "params": [
+        [
+          "release_id",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": true,
+      "ret": {
+        "$dict": "any"
+      }
+    },
+    "get_release_ids": {
+      "params": [],
+      "kwparams": {},
+      "readonly": true,
+      "ret": [
+        {
+          "$rep": "string"
+        }
+      ]
+    },
+    "register_release": {
+      "params": [
+        [
+          "release_id",
+          "string"
+        ],
+        [
+          "title",
+          "string"
+        ],
+        [
+          "repository",
+          "string"
+        ],
+        [
+          "base_sha",
+          "string"
+        ],
+        [
+          "head_sha",
+          "string"
+        ],
+        [
+          "claims_json",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "null",
+      "payable": false
+    }
+  }
+}

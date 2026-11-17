@@ -1,0 +1,162 @@
+{
+  "status": "PASSED",
+  "network": "Studionet",
+  "registry": "0x512dcFAD54177cBdDce1bB019f9dfD2C0c258f65",
+  "wallet": "0xe5beaC54E6231fCB073740422B348bd4F1EFAe8F",
+  "transactions": {
+    "register": {
+      "method": "register_release",
+      "submitted_hash": "0x7da32355dd52105798738dc24120eb47e101d46eb9879f667d962e11b5259b0b",
+      "hash": "0x7da32355dd52105798738dc24120eb47e101d46eb9879f667d962e11b5259b0b",
+      "status": "FINALIZED",
+      "address": "0x512dcFAD54177cBdDce1bB019f9dfD2C0c258f65",
+      "error": null
+    },
+    "audit": {
+      "method": "audit_release",
+      "submitted_hash": "0xaf9c4dbb37e098b5f6ec548a15268da055e1e8e995ca79e8b3c0e0c5dc8451f4",
+      "hash": "0xaf9c4dbb37e098b5f6ec548a15268da055e1e8e995ca79e8b3c0e0c5dc8451f4",
+      "status": "FINALIZED",
+      "address": "0x512dcFAD54177cBdDce1bB019f9dfD2C0c258f65",
+      "error": null
+    },
+    "challenge": {
+      "method": "challenge_claim",
+      "submitted_hash": "0xccc6be7364400af755905813095d7c05126dca7e7d941b3538c4b4745481c0c6",
+      "hash": "0xccc6be7364400af755905813095d7c05126dca7e7d941b3538c4b4745481c0c6",
+      "status": "FINALIZED",
+      "address": "0x512dcFAD54177cBdDce1bB019f9dfD2C0c258f65",
+      "error": null
+    }
+  },
+  "provider_methods": [
+    "eth_chainId",
+    "eth_accounts",
+    "eth_sendTransaction",
+    "eth_chainId",
+    "eth_accounts",
+    "eth_sendTransaction",
+    "eth_chainId",
+    "eth_accounts",
+    "eth_sendTransaction"
+  ],
+  "release": {
+    "base_sha": "0ce27278d234c13ce00019540ff8e9891542d1f2",
+    "claims": [
+      {
+        "blocking": true,
+        "finding": {
+          "evidence_files": [
+            "src/flask/sansio/app.py"
+          ],
+          "evidence_sha256": "12a055b784fdc662a68f33b6846a88cc6b5f2203bc5599f8db6e01eb0ca1a46b",
+          "file": "src/flask/sansio/app.py",
+          "id": "configurable",
+          "quote": "+            if \"OPTIONS\" not in methods and self.config[\"PROVIDE_AUTOMATIC_OPTIONS\"]:",
+          "reason": "Initial evidence review",
+          "requested_by": "0xe5beaC54E6231fCB073740422B348bd4F1EFAe8F",
+          "reviewed_at": 1794853712,
+          "revision": 0,
+          "status": "SUPPORTED"
+        },
+        "history": [
+          {
+            "evidence_files": [
+              "src/flask/sansio/app.py"
+            ],
+            "evidence_sha256": "12a055b784fdc662a68f33b6846a88cc6b5f2203bc5599f8db6e01eb0ca1a46b",
+            "file": "src/flask/sansio/app.py",
+            "id": "configurable",
+            "quote": "+            if \"OPTIONS\" not in methods and self.config[\"PROVIDE_AUTOMATIC_OPTIONS\"]:",
+            "reason": "Initial evidence review",
+            "requested_by": "0xe5beaC54E6231fCB073740422B348bd4F1EFAe8F",
+            "reviewed_at": 1794853712,
+            "revision": 0,
+            "status": "SUPPORTED"
+          }
+        ],
+        "id": "configurable",
+        "paths": [
+          "src/flask/sansio/app.py"
+        ],
+        "text": "Automatic OPTIONS responses can be controlled through configuration."
+      },
+      {
+        "blocking": true,
+        "finding": {
+          "evidence_files": [
+            "src/flask/app.py",
+            "src/flask/sansio/app.py"
+          ],
+          "evidence_sha256": "8f79ec4c8b0fba5c2681620611a38b96cf5492e24254c713cb57fa0e36bc9bca",
+          "file": "src/flask/app.py",
+          "id": "disabled-default",
+          "quote": "+            \"PROVIDE_AUTOMATIC_OPTIONS\": True,",
+          "reason": "The same comparison explicitly sets the configuration default to True in src/flask/app.py.",
+          "requested_by": "0xe5beaC54E6231fCB073740422B348bd4F1EFAe8F",
+          "reviewed_at": 1794853781,
+          "revision": 1,
+          "status": "CONTRADICTED"
+        },
+        "history": [
+          {
+            "evidence_files": [
+              "src/flask/sansio/app.py"
+            ],
+            "evidence_sha256": "12a055b784fdc662a68f33b6846a88cc6b5f2203bc5599f8db6e01eb0ca1a46b",
+            "file": "",
+            "id": "disabled-default",
+            "quote": "",
+            "reason": "Initial evidence review",
+            "requested_by": "0xe5beaC54E6231fCB073740422B348bd4F1EFAe8F",
+            "reviewed_at": 1794853712,
+            "revision": 0,
+            "status": "INCONCLUSIVE"
+          },
+          {
+            "evidence_files": [
+              "src/flask/app.py",
+              "src/flask/sansio/app.py"
+            ],
+            "evidence_sha256": "8f79ec4c8b0fba5c2681620611a38b96cf5492e24254c713cb57fa0e36bc9bca",
+            "file": "src/flask/app.py",
+            "id": "disabled-default",
+            "quote": "+            \"PROVIDE_AUTOMATIC_OPTIONS\": True,",
+            "reason": "The same comparison explicitly sets the configuration default to True in src/flask/app.py.",
+            "requested_by": "0xe5beaC54E6231fCB073740422B348bd4F1EFAe8F",
+            "reviewed_at": 1794853781,
+            "revision": 1,
+            "status": "CONTRADICTED"
+          }
+        ],
+        "id": "disabled-default",
+        "paths": [
+          "src/flask/sansio/app.py"
+        ],
+        "text": "Automatic OPTIONS responses are disabled by default."
+      }
+    ],
+    "compare_url": "https://github.com/pallets/flask/compare/0ce27278d234c13ce00019540ff8e9891542d1f2...d718ecf6d3dfc4656d262154c59672437c1ea075",
+    "created_at": 1794853658,
+    "evidence": [
+      {
+        "file": "src/flask/app.py",
+        "patch": "@@ -198,6 +198,7 @@ class Flask(App):\n             \"PREFERRED_URL_SCHEME\": \"http\",\n             \"TEMPLATES_AUTO_RELOAD\": None,\n             \"MAX_COOKIE_SIZE\": 4093,\n+            \"PROVIDE_AUTOMATIC_OPTIONS\": True,\n         }\n     )\n ",
+        "sha256": "e2d329f8527123d8c62e27e51b7a5b694b35fefb3e1293fa9aea5d052746307a"
+      },
+      {
+        "file": "src/flask/sansio/app.py",
+        "patch": "@@ -638,7 +638,7 @@ def add_url_rule(\n             )\n \n         if provide_automatic_options is None:\n-            if \"OPTIONS\" not in methods:\n+            if \"OPTIONS\" not in methods and self.config[\"PROVIDE_AUTOMATIC_OPTIONS\"]:\n                 provide_automatic_options = True\n                 required_methods.add(\"OPTIONS\")\n             else:",
+        "sha256": "70a5ea08a292b4ee938c183a12079e1522fbaf78d220f066f272be8be9540ce0"
+      }
+    ],
+    "evidence_sha256": "8f79ec4c8b0fba5c2681620611a38b96cf5492e24254c713cb57fa0e36bc9bca",
+    "gate": "BLOCKED",
+    "head_sha": "d718ecf6d3dfc4656d262154c59672437c1ea075",
+    "id": "wallet-provider-smoke",
+    "publisher": "0xe5beaC54E6231fCB073740422B348bd4F1EFAe8F",
+    "repository": "pallets/flask",
+    "title": "Wallet integration smoke test"
+  },
+  "scope": "Real SDK provider-backed writes through a scripted EIP-1193 signer; no browser wallet extension automation."
+}

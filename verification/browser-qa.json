@@ -1,0 +1,18 @@
+{
+  "desktop": "1348px viewport inspected",
+  "mobile": "390px iframe / 375px content width, no horizontal body overflow",
+  "checks": [
+    "live finalized reads",
+    "evidence SHA-256 matches",
+    "history retains inconclusive then contradicted finding",
+    "search updates selection",
+    "watchlist stores selected release",
+    "evidence ledger opens cited file",
+    "new-release template and review screen",
+    "mobile form controls",
+    "no-wallet error preserves draft",
+    "JSON export download confirmed"
+  ],
+  "wallet_scope": "No real browser extension automated; live EIP-1193 adapter separately verified",
+  "result": "PASSED"
+}

@@ -1,0 +1,4 @@
+VERIFIED flask-options: recorded gate BLOCKED, current BLOCKED
+VERIFIED flask-python: recorded gate CAUTION, current CAUTION
+VERIFIED click-runtime: recorded gate VERIFIED, current VERIFIED
+Source, receipts and immutable evidence history verified.

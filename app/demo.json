@@ -1,0 +1,392 @@
+{
+  "contract_address": "0xA2d587FE67B4866079e14a058aB6822bbb56f5D0",
+  "explorer_url": "https://explorer-studio.genlayer.com/address/0xA2d587FE67B4866079e14a058aB6822bbb56f5D0",
+  "source_sha256": "70879dc3651af8b516e18169fc9acafae7c943465f260618aec85873f05fcd02",
+  "network": "Studionet",
+  "chain_id": 61999,
+  "releases": [
+    {
+      "base_sha": "0ce27278d234c13ce00019540ff8e9891542d1f2",
+      "claims": [
+        {
+          "blocking": true,
+          "finding": {
+            "evidence_files": [
+              "src/flask/sansio/app.py"
+            ],
+            "evidence_sha256": "12a055b784fdc662a68f33b6846a88cc6b5f2203bc5599f8db6e01eb0ca1a46b",
+            "file": "src/flask/sansio/app.py",
+            "id": "configurable",
+            "quote": "+            if \"OPTIONS\" not in methods and self.config[\"PROVIDE_AUTOMATIC_OPTIONS\"]:",
+            "reason": "Initial evidence review",
+            "requested_by": "0xEbB49E012B4521BcB84d4dcE96500E745719380F",
+            "reviewed_at": 1794833781,
+            "revision": 0,
+            "status": "SUPPORTED"
+          },
+          "history": [
+            {
+              "evidence_files": [
+                "src/flask/sansio/app.py"
+              ],
+              "evidence_sha256": "12a055b784fdc662a68f33b6846a88cc6b5f2203bc5599f8db6e01eb0ca1a46b",
+              "file": "src/flask/sansio/app.py",
+              "id": "configurable",
+              "quote": "+            if \"OPTIONS\" not in methods and self.config[\"PROVIDE_AUTOMATIC_OPTIONS\"]:",
+              "reason": "Initial evidence review",
+              "requested_by": "0xEbB49E012B4521BcB84d4dcE96500E745719380F",
+              "reviewed_at": 1794833781,
+              "revision": 0,
+              "status": "SUPPORTED"
+            }
+          ],
+          "id": "configurable",
+          "paths": [
+            "src/flask/sansio/app.py"
+          ],
+          "text": "Automatic OPTIONS responses can be controlled through configuration."
+        },
+        {
+          "blocking": true,
+          "finding": {
+            "evidence_files": [
+              "src/flask/app.py",
+              "src/flask/sansio/app.py"
+            ],
+            "evidence_sha256": "8f79ec4c8b0fba5c2681620611a38b96cf5492e24254c713cb57fa0e36bc9bca",
+            "file": "src/flask/app.py",
+            "id": "disabled-default",
+            "quote": "+            \"PROVIDE_AUTOMATIC_OPTIONS\": True,",
+            "reason": "The default configuration explicitly sets PROVIDE_AUTOMATIC_OPTIONS to True. Include that file from the same immutable comparison.",
+            "requested_by": "0xEbB49E012B4521BcB84d4dcE96500E745719380F",
+            "reviewed_at": 1794833839,
+            "revision": 1,
+            "status": "CONTRADICTED"
+          },
+          "history": [
+            {
+              "evidence_files": [
+                "src/flask/sansio/app.py"
+              ],
+              "evidence_sha256": "12a055b784fdc662a68f33b6846a88cc6b5f2203bc5599f8db6e01eb0ca1a46b",
+              "file": "",
+              "id": "disabled-default",
+              "quote": "",
+              "reason": "Initial evidence review",
+              "requested_by": "0xEbB49E012B4521BcB84d4dcE96500E745719380F",
+              "reviewed_at": 1794833781,
+              "revision": 0,
+              "status": "INCONCLUSIVE"
+            },
+            {
+              "evidence_files": [
+                "src/flask/app.py",
+                "src/flask/sansio/app.py"
+              ],
+              "evidence_sha256": "8f79ec4c8b0fba5c2681620611a38b96cf5492e24254c713cb57fa0e36bc9bca",
+              "file": "src/flask/app.py",
+              "id": "disabled-default",
+              "quote": "+            \"PROVIDE_AUTOMATIC_OPTIONS\": True,",
+              "reason": "The default configuration explicitly sets PROVIDE_AUTOMATIC_OPTIONS to True. Include that file from the same immutable comparison.",
+              "requested_by": "0xEbB49E012B4521BcB84d4dcE96500E745719380F",
+              "reviewed_at": 1794833839,
+              "revision": 1,
+              "status": "CONTRADICTED"
+            }
+          ],
+          "id": "disabled-default",
+          "paths": [
+            "src/flask/sansio/app.py"
+          ],
+          "text": "Automatic OPTIONS responses are disabled by default."
+        }
+      ],
+      "compare_url": "https://github.com/pallets/flask/compare/0ce27278d234c13ce00019540ff8e9891542d1f2...d718ecf6d3dfc4656d262154c59672437c1ea075",
+      "created_at": 1794833744,
+      "evidence": [
+        {
+          "file": "src/flask/app.py",
+          "patch": "@@ -198,6 +198,7 @@ class Flask(App):\n             \"PREFERRED_URL_SCHEME\": \"http\",\n             \"TEMPLATES_AUTO_RELOAD\": None,\n             \"MAX_COOKIE_SIZE\": 4093,\n+            \"PROVIDE_AUTOMATIC_OPTIONS\": True,\n         }\n     )\n ",
+          "sha256": "e2d329f8527123d8c62e27e51b7a5b694b35fefb3e1293fa9aea5d052746307a"
+        },
+        {
+          "file": "src/flask/sansio/app.py",
+          "patch": "@@ -638,7 +638,7 @@ def add_url_rule(\n             )\n \n         if provide_automatic_options is None:\n-            if \"OPTIONS\" not in methods:\n+            if \"OPTIONS\" not in methods and self.config[\"PROVIDE_AUTOMATIC_OPTIONS\"]:\n                 provide_automatic_options = True\n                 required_methods.add(\"OPTIONS\")\n             else:",
+          "sha256": "70a5ea08a292b4ee938c183a12079e1522fbaf78d220f066f272be8be9540ce0"
+        }
+      ],
+      "evidence_sha256": "8f79ec4c8b0fba5c2681620611a38b96cf5492e24254c713cb57fa0e36bc9bca",
+      "gate": "BLOCKED",
+      "head_sha": "d718ecf6d3dfc4656d262154c59672437c1ea075",
+      "id": "flask-options",
+      "publisher": "0xEbB49E012B4521BcB84d4dcE96500E745719380F",
+      "repository": "pallets/flask",
+      "title": "Automatic OPTIONS"
+    },
+    {
+      "base_sha": "e8b91cd38aadafdf733558bbcea4810fa65bb849",
+      "claims": [
+        {
+          "blocking": true,
+          "finding": {
+            "evidence_files": [
+              "pyproject.toml"
+            ],
+            "evidence_sha256": "c71c5b202ee6cc5246284b6e7dd97e342dd1f2e81871a684b76f5082fd10590b",
+            "file": "pyproject.toml",
+            "id": "python-floor",
+            "quote": "+requires-python = \">=3.9\"",
+            "reason": "Initial evidence review",
+            "requested_by": "0xEbB49E012B4521BcB84d4dcE96500E745719380F",
+            "reviewed_at": 1794833932,
+            "revision": 0,
+            "status": "SUPPORTED"
+          },
+          "history": [
+            {
+              "evidence_files": [
+                "pyproject.toml"
+              ],
+              "evidence_sha256": "c71c5b202ee6cc5246284b6e7dd97e342dd1f2e81871a684b76f5082fd10590b",
+              "file": "pyproject.toml",
+              "id": "python-floor",
+              "quote": "+requires-python = \">=3.9\"",
+              "reason": "Initial evidence review",
+              "requested_by": "0xEbB49E012B4521BcB84d4dcE96500E745719380F",
+              "reviewed_at": 1794833932,
+              "revision": 0,
+              "status": "SUPPORTED"
+            }
+          ],
+          "id": "python-floor",
+          "paths": [
+            "pyproject.toml"
+          ],
+          "text": "The package now requires Python 3.9 or newer."
+        },
+        {
+          "blocking": false,
+          "finding": {
+            "evidence_files": [
+              "pyproject.toml"
+            ],
+            "evidence_sha256": "c71c5b202ee6cc5246284b6e7dd97e342dd1f2e81871a684b76f5082fd10590b",
+            "file": "",
+            "id": "csv-export",
+            "quote": "",
+            "reason": "Initial evidence review",
+            "requested_by": "0xEbB49E012B4521BcB84d4dcE96500E745719380F",
+            "reviewed_at": 1794833932,
+            "revision": 0,
+            "status": "INCONCLUSIVE"
+          },
+          "history": [
+            {
+              "evidence_files": [
+                "pyproject.toml"
+              ],
+              "evidence_sha256": "c71c5b202ee6cc5246284b6e7dd97e342dd1f2e81871a684b76f5082fd10590b",
+              "file": "",
+              "id": "csv-export",
+              "quote": "",
+              "reason": "Initial evidence review",
+              "requested_by": "0xEbB49E012B4521BcB84d4dcE96500E745719380F",
+              "reviewed_at": 1794833932,
+              "revision": 0,
+              "status": "INCONCLUSIVE"
+            }
+          ],
+          "id": "csv-export",
+          "paths": [
+            "pyproject.toml"
+          ],
+          "text": "This change adds an executable CSV export function."
+        }
+      ],
+      "compare_url": "https://github.com/pallets/flask/compare/e8b91cd38aadafdf733558bbcea4810fa65bb849...99ce7ed0e40686ec2583f90bd1cca37a207b4ea7",
+      "created_at": 1794833898,
+      "evidence": [
+        {
+          "file": "pyproject.toml",
+          "patch": "@@ -19,7 +19,7 @@ classifiers = [\n     \"Topic :: Software Development :: Libraries :: Application Frameworks\",\n     \"Typing :: Typed\",\n ]\n-requires-python = \">=3.8\"\n+requires-python = \">=3.9\"\n dependencies = [\n     \"Werkzeug>=3.0.0\",\n     \"Jinja2>=3.1.2\",\n@@ -78,7 +78,7 @@ source = [\"flask\", \"tests\"]\n source = [\"src\", \"*/site-packages\"]\n \n [tool.mypy]\n-python_version = \"3.8\"\n+python_version = \"3.9\"\n files = [\"src/flask\", \"tests/typing\"]\n show_error_codes = true\n pretty = true\n@@ -94,7 +94,7 @@ module = [\n ignore_missing_imports = true\n \n [tool.pyright]\n-pythonVersion = \"3.8\"\n+pythonVersion = \"3.9\"\n include = [\"src/flask\", \"tests/typing\"]\n typeCheckingMode = \"basic\"\n ",
+          "sha256": "0d6854d9f9bddd7f3b8e64b52cdc77ba7b038d18cdf50561237dd6f5d50404df"
+        }
+      ],
+      "evidence_sha256": "c71c5b202ee6cc5246284b6e7dd97e342dd1f2e81871a684b76f5082fd10590b",
+      "gate": "CAUTION",
+      "head_sha": "99ce7ed0e40686ec2583f90bd1cca37a207b4ea7",
+      "id": "flask-python",
+      "publisher": "0xEbB49E012B4521BcB84d4dcE96500E745719380F",
+      "repository": "pallets/flask",
+      "title": "Python compatibility"
+    },
+    {
+      "base_sha": "f14b75063fb36b9208b13a920326926363616b39",
+      "claims": [
+        {
+          "blocking": true,
+          "finding": {
+            "evidence_files": [
+              "pyproject.toml"
+            ],
+            "evidence_sha256": "2e98c3f2065f594b26559bb462d65b17a5ca565ff712ac09386753885fc510e3",
+            "file": "pyproject.toml",
+            "id": "python-floor",
+            "quote": "+requires-python = \">=3.10\"",
+            "reason": "Initial evidence review",
+            "requested_by": "0xEbB49E012B4521BcB84d4dcE96500E745719380F",
+            "reviewed_at": 1794834021,
+            "revision": 0,
+            "status": "SUPPORTED"
+          },
+          "history": [
+            {
+              "evidence_files": [
+                "pyproject.toml"
+              ],
+              "evidence_sha256": "2e98c3f2065f594b26559bb462d65b17a5ca565ff712ac09386753885fc510e3",
+              "file": "pyproject.toml",
+              "id": "python-floor",
+              "quote": "+requires-python = \">=3.10\"",
+              "reason": "Initial evidence review",
+              "requested_by": "0xEbB49E012B4521BcB84d4dcE96500E745719380F",
+              "reviewed_at": 1794834021,
+              "revision": 0,
+              "status": "SUPPORTED"
+            }
+          ],
+          "id": "python-floor",
+          "paths": [
+            "pyproject.toml"
+          ],
+          "text": "The package now requires Python 3.10 or newer."
+        },
+        {
+          "blocking": true,
+          "finding": {
+            "evidence_files": [
+              "CHANGES.rst"
+            ],
+            "evidence_sha256": "08119f397165846bb03344d87722c34c855b641bc922fa7126684cf53f5d51fa",
+            "file": "CHANGES.rst",
+            "id": "changelog",
+            "quote": "+-   Drop support for Python 3.7, 3.8, and 3.9. :pr:`2588` :pr:`2892`",
+            "reason": "Initial evidence review",
+            "requested_by": "0xEbB49E012B4521BcB84d4dcE96500E745719380F",
+            "reviewed_at": 1794834021,
+            "revision": 0,
+            "status": "SUPPORTED"
+          },
+          "history": [
+            {
+              "evidence_files": [
+                "CHANGES.rst"
+              ],
+              "evidence_sha256": "08119f397165846bb03344d87722c34c855b641bc922fa7126684cf53f5d51fa",
+              "file": "CHANGES.rst",
+              "id": "changelog",
+              "quote": "+-   Drop support for Python 3.7, 3.8, and 3.9. :pr:`2588` :pr:`2892`",
+              "reason": "Initial evidence review",
+              "requested_by": "0xEbB49E012B4521BcB84d4dcE96500E745719380F",
+              "reviewed_at": 1794834021,
+              "revision": 0,
+              "status": "SUPPORTED"
+            }
+          ],
+          "id": "changelog",
+          "paths": [
+            "CHANGES.rst"
+          ],
+          "text": "The changelog now explicitly includes Python 3.8 and 3.9 in its dropped-support list."
+        }
+      ],
+      "compare_url": "https://github.com/pallets/click/compare/f14b75063fb36b9208b13a920326926363616b39...498f8826040fd6644d0f410c4d574df09c35d4b2",
+      "created_at": 1794833981,
+      "evidence": [
+        {
+          "file": "CHANGES.rst",
+          "patch": "@@ -5,7 +5,7 @@ Version 8.2.0\n \n Released 2025-03-26\n \n--   Drop support for Python 3.7. :pr:`2588`\n+-   Drop support for Python 3.7, 3.8, and 3.9. :pr:`2588` :pr:`2892`\n -   Use modern packaging metadata with ``pyproject.toml`` instead of ``setup.cfg``.\n     :pr:`2438`\n -   Use ``flit_core`` instead of ``setuptools`` as build backend. :pr:`2543`",
+          "sha256": "9bbb92a8b28059fc5e025a00e1e870f4fe44d773e192b436fef8bd56bab74892"
+        },
+        {
+          "file": "pyproject.toml",
+          "patch": "@@ -13,7 +13,7 @@ classifiers = [\n     \"Programming Language :: Python\",\n     \"Typing :: Typed\",\n ]\n-requires-python = \">=3.8\"\n+requires-python = \">=3.10\"\n dependencies = [\n     \"colorama; platform_system == 'Windows'\",\n ]\n@@ -58,7 +58,7 @@ source = [\"click\", \"tests\"]\n source = [\"src\", \"*/site-packages\"]\n \n [tool.mypy]\n-python_version = \"3.8\"\n+python_version = \"3.10\"\n files = [\"src/click\", \"tests/typing\"]\n show_error_codes = true\n pretty = true\n@@ -71,7 +71,7 @@ module = [\n ignore_missing_imports = true\n \n [tool.pyright]\n-pythonVersion = \"3.8\"\n+pythonVersion = \"3.10\"\n include = [\"src/click\", \"tests/typing\"]\n typeCheckingMode = \"basic\"\n \n@@ -91,6 +91,9 @@ select = [\n     \"UP\",  # pyupgrade\n     \"W\",  # pycodestyle warning\n ]\n+ignore = [\n+    \"UP038\",  # keep isinstance tuples\n+]\n \n [tool.ruff.lint.isort]\n force-single-line = true",
+          "sha256": "5396979a52bbe8888135ef9fa2f7555d7be5f4782012e3229c7243b17fd2ecef"
+        }
+      ],
+      "evidence_sha256": "112f01625386c5a059f8fe5c0471bb4204941bc3980e4459f52202efbc439bb0",
+      "gate": "VERIFIED",
+      "head_sha": "498f8826040fd6644d0f410c4d574df09c35d4b2",
+      "id": "click-runtime",
+      "publisher": "0xEbB49E012B4521BcB84d4dcE96500E745719380F",
+      "repository": "pallets/click",
+      "title": "Runtime requirements"
+    }
+  ],
+  "transactions": {
+    "flask-options-register": {
+      "tx_hash": "0xd8fb9cf6a472e40460672d939123d9f052c35111b9279bd531af2cd7323607d4",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0xd8fb9cf6a472e40460672d939123d9f052c35111b9279bd531af2cd7323607d4",
+      "status": "FINALIZED",
+      "vote_result": "MAJORITY_AGREE",
+      "execution_result": "SUCCESS",
+      "error_code": null,
+      "method": "register_release"
+    },
+    "flask-options-audit": {
+      "tx_hash": "0x6070f7622efcc05ca606e566ef53fafc9e37f4f4b41f9328d7ed70de0beb1027",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x6070f7622efcc05ca606e566ef53fafc9e37f4f4b41f9328d7ed70de0beb1027",
+      "status": "FINALIZED",
+      "vote_result": "MAJORITY_AGREE",
+      "execution_result": "SUCCESS",
+      "error_code": null,
+      "method": "audit_release"
+    },
+    "flask-options-challenge": {
+      "tx_hash": "0xc433f354ff55a5f0fe35d2c924e93bdff042882c94c9109dbf3ec71609251368",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0xc433f354ff55a5f0fe35d2c924e93bdff042882c94c9109dbf3ec71609251368",
+      "status": "FINALIZED",
+      "vote_result": "MAJORITY_AGREE",
+      "execution_result": "SUCCESS",
+      "error_code": null,
+      "method": "challenge_claim"
+    },
+    "flask-python-register": {
+      "tx_hash": "0xa3f0db5e5bf563fad3bdf2fcbb53bdb34c25616b4d6b0a1e007d4b48cb12b4a2",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0xa3f0db5e5bf563fad3bdf2fcbb53bdb34c25616b4d6b0a1e007d4b48cb12b4a2",
+      "status": "FINALIZED",
+      "vote_result": "MAJORITY_AGREE",
+      "execution_result": "SUCCESS",
+      "error_code": null,
+      "method": "register_release"
+    },
+    "flask-python-audit": {
+      "tx_hash": "0x0b6dc2673f4d7560977ffe19a536379be6e0f5638a52e2cf6b52f306fb677364",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x0b6dc2673f4d7560977ffe19a536379be6e0f5638a52e2cf6b52f306fb677364",
+      "status": "FINALIZED",
+      "vote_result": "MAJORITY_AGREE",
+      "execution_result": "SUCCESS",
+      "error_code": null,
+      "method": "audit_release"
+    },
+    "click-runtime-register": {
+      "tx_hash": "0x6f8e4bddd1fd0da01f3f11cee55966e92903f8396cc0ff6787632744a3c14065",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x6f8e4bddd1fd0da01f3f11cee55966e92903f8396cc0ff6787632744a3c14065",
+      "status": "FINALIZED",
+      "vote_result": "MAJORITY_AGREE",
+      "execution_result": "SUCCESS",
+      "error_code": null,
+      "method": "register_release"
+    },
+    "click-runtime-audit": {
+      "tx_hash": "0x3f5d06807e189e9b004ac1eca74e28b6450d8c658317159a471ae6f27e060d79",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x3f5d06807e189e9b004ac1eca74e28b6450d8c658317159a471ae6f27e060d79",
+      "status": "FINALIZED",
+      "vote_result": "MAJORITY_AGREE",
+      "execution_result": "SUCCESS",
+      "error_code": null,
+      "method": "audit_release"
+    }
+  },
+  "fixture_notice": "Historical case studies with illustrative assertions; these are not quotations or promises by upstream maintainers."
+}

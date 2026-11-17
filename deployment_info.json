@@ -1,0 +1,21 @@
+{
+  "contract": "ReleaseProof",
+  "network": "Studionet",
+  "chain_id": 61999,
+  "rpc_url": "https://studio.genlayer.com/api",
+  "deployer": "0xEbB49E012B4521BcB84d4dcE96500E745719380F",
+  "source_file": "contracts/release_proof.py",
+  "source_sha256": "70879dc3651af8b516e18169fc9acafae7c943465f260618aec85873f05fcd02",
+  "deploy_tx": {
+    "tx_hash": "0x08ad027794b8939f8193afb9238af775df3e0e7a5d18ef926911f8db2428d3cb",
+    "explorer_url": "https://explorer-studio.genlayer.com/tx/0x08ad027794b8939f8193afb9238af775df3e0e7a5d18ef926911f8db2428d3cb",
+    "status": "FINALIZED",
+    "vote_result": "MAJORITY_AGREE",
+    "execution_result": "SUCCESS",
+    "error_code": null
+  },
+  "contract_address": "0xA2d587FE67B4866079e14a058aB6822bbb56f5D0",
+  "explorer_url": "https://explorer-studio.genlayer.com/address/0xA2d587FE67B4866079e14a058aB6822bbb56f5D0",
+  "onchain_source_sha256": "70879dc3651af8b516e18169fc9acafae7c943465f260618aec85873f05fcd02",
+  "source_matches_onchain": true
+}
