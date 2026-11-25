@@ -1,5 +1,6 @@
 import React,{useState,useEffect,useRef} from 'react';
 import Icon from './icons.jsx';
+import BundleInspector from './BundleInspector.jsx';
 import demo from './demo.json' with {type:'json'};
 import {CONTRACT_ADDRESS,read,sign,waitFinalized} from './chain.js';
 import {STATUS,EXPLORER,short,verifyEvidence,validateDraft,splitPaths,filterReleases,stats,safeStored,exportReport} from './domain.js';
@@ -194,6 +195,7 @@ export default function App(){
         <button className={view==='desk'?'active':''} onClick={()=>nav('desk')}><Icon name="grid"/>Release desk<span>{releases.length}</span></button>
         <button className={view==='ledger'?'active':''} onClick={()=>nav('ledger')}><Icon name="layers"/>Evidence ledger</button>
         <button className={view==='watchlist'?'active':''} onClick={()=>nav('watchlist')}><Icon name="bookmark"/>Watchlist{watched.length>0&&<span>{watched.length}</span>}</button>
+        <button aria-haspopup="dialog" onClick={()=>{setMobileNav(false);setModal({type:'inspector'});}}><Icon name="shield"/>Bundle inspector</button>
       </nav>
       <div className="sidebar-bottom"><div className="protocol-card"><div className="protocol-symbol"><Icon name="shield" size={25}/></div><span>Claims meet consensus.</span><p>Independent reasoning.<br/>A permanent evidence trail.</p><button onClick={()=>setModal({type:'guide'})}>How it works<Icon name="arrow" size={15}/></button></div>
         <button className="sidebar-help" onClick={()=>setModal({type:'guide'})}><Icon name="book"/>Review guide<Icon name="external" size={14}/></button>
@@ -244,6 +246,7 @@ export default function App(){
     {pending&&<div className="transaction-bar" role="status"><span className={busy?'spinner':'pending-dot'}/><div><b>{pending.label}</b><small>{busy?txStatus:'Transaction pending · resume tracking before another write'}</small></div><Link href={EXPLORER+'/tx/'+pending.hash}>Explorer<Icon name="external" size={12}/></Link>{!busy&&<button className="button primary small-button" onClick={()=>track(pending).catch(e=>toast(e.message))}>Track status</button>}</div>}
     {notice&&<div className="toast" role="status"><Icon name="info" size={17}/>{notice}<button aria-label="Dismiss notification" onClick={()=>setNotice('')}><Icon name="close" size={15}/></button></div>}
     {modal?.type==='new'&&<NewRelease close={()=>setModal(null)} submit={createRelease} busy={busy} wallet={wallet} connect={connect}/>}
+    {modal?.type==='inspector'&&<Modal title="Inspect an evidence bundle" subtitle="Check a shared report, then see whether its review is still current." close={()=>setModal(null)} wide><BundleInspector registry={CONTRACT_ADDRESS} readRelease={id=>read(CONTRACT_ADDRESS,'get_release',id)}/></Modal>}
     {modal?.type==='challenge'&&release&&claim&&<Challenge release={release} claim={claim} close={()=>setModal(null)} busy={busy} submit={(paths,reason)=>transact('challenge_claim',[release.id,claim.id,JSON.stringify(paths),reason],'Evidence challenge')}/>}
     {modal?.type==='guide'&&<Modal title="Evidence over assumptions." subtitle="A review process you can inspect, reproduce and challenge." close={()=>setModal(null)} wide><div className="guide-steps">{intro.map(([n,title,text])=><div key={n}><span>{n}</span><div><h3>{title}</h3><p>{text}</p></div></div>)}</div><div className="callout"><Icon name="wallet"/><p>Reading and exporting need no wallet. To write, connect an injected wallet on Studionet and fund it with test GEN from GenLayer Studio. Register a release, then select <b>Run GenLayer audit</b>.</p></div><div className="scope-box"><h3>Know the boundaries</h3><p>Verdicts cover selected diffs, not an entire codebase. A “Supported” finding is not a security certification. Missing evidence is inconclusive. Public challenges can revise findings; original history stays visible.</p><p>The three included case studies use historical Flask and Click changes with illustrative assertions, not quotations from their maintainers.</p></div><div className="modal-actions"><Link href="https://studio.genlayer.com" className="button secondary">Open GenLayer Studio<Icon name="external" size={14}/></Link><button className="button primary" onClick={()=>setModal(null)}>Start exploring<Icon name="arrow"/></button></div></Modal>}
     {modal?.type==='wallet'&&<Modal title={wallet?'Your wallet':'Connect a wallet'} subtitle="Read freely. Sign only when you want to contribute." close={()=>setModal(null)}>

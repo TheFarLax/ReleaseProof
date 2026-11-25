@@ -179,3 +179,9 @@ See [architecture](docs/ARCHITECTURE.md), [verification notes](docs/VERIFICATION
 | .github/workflows/ | GitHub Pages deployment workflow |
 
 MIT license for original project code. Upstream example diffs and dependencies retain their original licenses.
+
+## Milestone: Evidence Bundle Inspector
+
+Open **Bundle inspector** in the sidebar to inspect a previously exported ReleaseProof JSON file. The inspector checks patch and snapshot hashes, historical evidence, exact changed-line witnesses, current findings and gate consistency. An optional read-only comparison with the configured finalized registry distinguishes a current report, a valid older review and an edited mismatch. Download a separate inspection report with the original file's SHA-256 and the comparison results.
+
+The milestone uses the existing contract and registry. It adds no wallet transaction or contract deployment. See [the milestone guide](docs/MILESTONE_BUNDLE_INSPECTOR.md), [submission copy](docs/MILESTONE_SUBMISSION.md) and [sample bundles](examples/bundle-inspector/README.md). Re-run the live, read-only checks with `node scripts/verify_bundle_inspector.mjs` after `npm ci`.

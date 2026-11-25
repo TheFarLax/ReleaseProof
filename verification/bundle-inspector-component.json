@@ -1,0 +1,21 @@
+{
+  "status": "PASSED",
+  "method": "In-memory React DOM component tests; no browser or visual-layout claim",
+  "checks": [
+    "Empty upload view renders without contacting the registry",
+    "Local import checks remain separate from registry verification",
+    "Current report comparison renders the finalized match and claim table",
+    "Inspection download carries the exact source file digest and current check result",
+    "Valid older review shows the added review, new file and gate transition",
+    "Rejected upload clears prior successful state and disables report export",
+    "Internally consistent edited assertion renders the registry mismatch",
+    "Foreign contract input cannot trigger a configured-registry comparison",
+    "Failed network check and exported report never claim a current match",
+    "A failed registry check can be retried without importing again",
+    "Delayed result for an old file cannot certify its replacement",
+    "Clear removes the loaded file, comparison and export actions",
+    "Single-file drag and drop reaches the same validated import path",
+    "Multiple dropped files clear previous checks instead of reusing a stale result"
+  ],
+  "checked_at": "2026-11-24T11:39:46.880Z"
+}

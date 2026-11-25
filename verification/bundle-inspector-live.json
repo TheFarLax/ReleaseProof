@@ -1,0 +1,167 @@
+{
+  "status": "PASSED",
+  "checked_at": "2026-11-24T11:31:51.404Z",
+  "mode": "read-only latest-final RPC",
+  "contract_address": "0xA2d587FE67B4866079e14a058aB6822bbb56f5D0",
+  "source_sha256": "70879dc3651af8b516e18169fc9acafae7c943465f260618aec85873f05fcd02",
+  "source_matches": true,
+  "transactions_submitted": 0,
+  "cases": [
+    {
+      "id": "flask-options",
+      "live_export": {
+        "status": "CURRENT",
+        "checked_at": "2026-11-24T11:32:00.850Z",
+        "exported_gate": "BLOCKED",
+        "current_gate": "BLOCKED",
+        "additional_reviews": 0,
+        "added_files": [],
+        "claims": [
+          {
+            "id": "configurable",
+            "text": "Automatic OPTIONS responses can be controlled through configuration.",
+            "blocking": true,
+            "exported_status": "SUPPORTED",
+            "current_status": "SUPPORTED",
+            "exported_revision": 0,
+            "current_revision": 0,
+            "additional_reviews": 0
+          },
+          {
+            "id": "disabled-default",
+            "text": "Automatic OPTIONS responses are disabled by default.",
+            "blocking": true,
+            "exported_status": "CONTRADICTED",
+            "current_status": "CONTRADICTED",
+            "exported_revision": 1,
+            "current_revision": 1,
+            "additional_reviews": 0
+          }
+        ],
+        "differences": []
+      },
+      "packaged_snapshot_status": "CURRENT",
+      "local_checks": {
+        "patches": 2,
+        "claims": 2,
+        "reviews": 3,
+        "witnesses": 2
+      }
+    },
+    {
+      "id": "flask-python",
+      "live_export": {
+        "status": "CURRENT",
+        "checked_at": "2026-11-24T11:32:03.173Z",
+        "exported_gate": "CAUTION",
+        "current_gate": "CAUTION",
+        "additional_reviews": 0,
+        "added_files": [],
+        "claims": [
+          {
+            "id": "python-floor",
+            "text": "The package now requires Python 3.9 or newer.",
+            "blocking": true,
+            "exported_status": "SUPPORTED",
+            "current_status": "SUPPORTED",
+            "exported_revision": 0,
+            "current_revision": 0,
+            "additional_reviews": 0
+          },
+          {
+            "id": "csv-export",
+            "text": "This change adds an executable CSV export function.",
+            "blocking": false,
+            "exported_status": "INCONCLUSIVE",
+            "current_status": "INCONCLUSIVE",
+            "exported_revision": 0,
+            "current_revision": 0,
+            "additional_reviews": 0
+          }
+        ],
+        "differences": []
+      },
+      "packaged_snapshot_status": "CURRENT",
+      "local_checks": {
+        "patches": 1,
+        "claims": 2,
+        "reviews": 2,
+        "witnesses": 1
+      }
+    },
+    {
+      "id": "click-runtime",
+      "live_export": {
+        "status": "CURRENT",
+        "checked_at": "2026-11-24T11:32:05.297Z",
+        "exported_gate": "VERIFIED",
+        "current_gate": "VERIFIED",
+        "additional_reviews": 0,
+        "added_files": [],
+        "claims": [
+          {
+            "id": "python-floor",
+            "text": "The package now requires Python 3.10 or newer.",
+            "blocking": true,
+            "exported_status": "SUPPORTED",
+            "current_status": "SUPPORTED",
+            "exported_revision": 0,
+            "current_revision": 0,
+            "additional_reviews": 0
+          },
+          {
+            "id": "changelog",
+            "text": "The changelog now explicitly includes Python 3.8 and 3.9 in its dropped-support list.",
+            "blocking": true,
+            "exported_status": "SUPPORTED",
+            "current_status": "SUPPORTED",
+            "exported_revision": 0,
+            "current_revision": 0,
+            "additional_reviews": 0
+          }
+        ],
+        "differences": []
+      },
+      "packaged_snapshot_status": "CURRENT",
+      "local_checks": {
+        "patches": 2,
+        "claims": 2,
+        "reviews": 2,
+        "witnesses": 2
+      }
+    }
+  ],
+  "before_challenge": {
+    "status": "UPDATED",
+    "checked_at": "2026-11-24T11:32:00.855Z",
+    "exported_gate": "REVIEW",
+    "current_gate": "BLOCKED",
+    "additional_reviews": 1,
+    "added_files": [
+      "src/flask/app.py"
+    ],
+    "claims": [
+      {
+        "id": "configurable",
+        "text": "Automatic OPTIONS responses can be controlled through configuration.",
+        "blocking": true,
+        "exported_status": "SUPPORTED",
+        "current_status": "SUPPORTED",
+        "exported_revision": 0,
+        "current_revision": 0,
+        "additional_reviews": 0
+      },
+      {
+        "id": "disabled-default",
+        "text": "Automatic OPTIONS responses are disabled by default.",
+        "blocking": true,
+        "exported_status": "INCONCLUSIVE",
+        "current_status": "CONTRADICTED",
+        "exported_revision": 0,
+        "current_revision": 1,
+        "additional_reviews": 1
+      }
+    ],
+    "differences": []
+  }
+}

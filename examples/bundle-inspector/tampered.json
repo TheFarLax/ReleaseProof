@@ -1,0 +1,192 @@
+{
+  "format": "releaseproof-evidence-bundle-v1",
+  "network": "Studionet",
+  "chain_id": 61999,
+  "contract_address": "0xA2d587FE67B4866079e14a058aB6822bbb56f5D0",
+  "data_source": "Packaged onchain snapshot",
+  "exported_at": "2026-11-24T11:31:37.401Z",
+  "scope": "Selected source assertions only; not software safety, deployment or authorship certification.",
+  "release": {
+    "base_sha": "0ce27278d234c13ce00019540ff8e9891542d1f2",
+    "claims": [
+      {
+        "blocking": true,
+        "finding": {
+          "evidence_files": [
+            "src/flask/sansio/app.py"
+          ],
+          "evidence_sha256": "12a055b784fdc662a68f33b6846a88cc6b5f2203bc5599f8db6e01eb0ca1a46b",
+          "file": "src/flask/sansio/app.py",
+          "id": "configurable",
+          "quote": "+            if \"OPTIONS\" not in methods and self.config[\"PROVIDE_AUTOMATIC_OPTIONS\"]:",
+          "reason": "Initial evidence review",
+          "requested_by": "0xEbB49E012B4521BcB84d4dcE96500E745719380F",
+          "reviewed_at": 1794833781,
+          "revision": 0,
+          "status": "SUPPORTED"
+        },
+        "history": [
+          {
+            "evidence_files": [
+              "src/flask/sansio/app.py"
+            ],
+            "evidence_sha256": "12a055b784fdc662a68f33b6846a88cc6b5f2203bc5599f8db6e01eb0ca1a46b",
+            "file": "src/flask/sansio/app.py",
+            "id": "configurable",
+            "quote": "+            if \"OPTIONS\" not in methods and self.config[\"PROVIDE_AUTOMATIC_OPTIONS\"]:",
+            "reason": "Initial evidence review",
+            "requested_by": "0xEbB49E012B4521BcB84d4dcE96500E745719380F",
+            "reviewed_at": 1794833781,
+            "revision": 0,
+            "status": "SUPPORTED"
+          }
+        ],
+        "id": "configurable",
+        "paths": [
+          "src/flask/sansio/app.py"
+        ],
+        "text": "Automatic OPTIONS responses can be controlled through configuration."
+      },
+      {
+        "blocking": true,
+        "finding": {
+          "evidence_files": [
+            "src/flask/app.py",
+            "src/flask/sansio/app.py"
+          ],
+          "evidence_sha256": "8f79ec4c8b0fba5c2681620611a38b96cf5492e24254c713cb57fa0e36bc9bca",
+          "file": "src/flask/app.py",
+          "id": "disabled-default",
+          "quote": "+            \"PROVIDE_AUTOMATIC_OPTIONS\": True,",
+          "reason": "The default configuration explicitly sets PROVIDE_AUTOMATIC_OPTIONS to True. Include that file from the same immutable comparison.",
+          "requested_by": "0xEbB49E012B4521BcB84d4dcE96500E745719380F",
+          "reviewed_at": 1794833839,
+          "revision": 1,
+          "status": "CONTRADICTED"
+        },
+        "history": [
+          {
+            "evidence_files": [
+              "src/flask/sansio/app.py"
+            ],
+            "evidence_sha256": "12a055b784fdc662a68f33b6846a88cc6b5f2203bc5599f8db6e01eb0ca1a46b",
+            "file": "",
+            "id": "disabled-default",
+            "quote": "",
+            "reason": "Initial evidence review",
+            "requested_by": "0xEbB49E012B4521BcB84d4dcE96500E745719380F",
+            "reviewed_at": 1794833781,
+            "revision": 0,
+            "status": "INCONCLUSIVE"
+          },
+          {
+            "evidence_files": [
+              "src/flask/app.py",
+              "src/flask/sansio/app.py"
+            ],
+            "evidence_sha256": "8f79ec4c8b0fba5c2681620611a38b96cf5492e24254c713cb57fa0e36bc9bca",
+            "file": "src/flask/app.py",
+            "id": "disabled-default",
+            "quote": "+            \"PROVIDE_AUTOMATIC_OPTIONS\": True,",
+            "reason": "The default configuration explicitly sets PROVIDE_AUTOMATIC_OPTIONS to True. Include that file from the same immutable comparison.",
+            "requested_by": "0xEbB49E012B4521BcB84d4dcE96500E745719380F",
+            "reviewed_at": 1794833839,
+            "revision": 1,
+            "status": "CONTRADICTED"
+          }
+        ],
+        "id": "disabled-default",
+        "paths": [
+          "src/flask/sansio/app.py"
+        ],
+        "text": "Automatic OPTIONS responses are disabled by default."
+      }
+    ],
+    "compare_url": "https://github.com/pallets/flask/compare/0ce27278d234c13ce00019540ff8e9891542d1f2...d718ecf6d3dfc4656d262154c59672437c1ea075",
+    "created_at": 1794833744,
+    "evidence": [
+      {
+        "file": "src/flask/app.py",
+        "patch": "@@ -198,6 +198,7 @@ class Flask(App):\n             \"PREFERRED_URL_SCHEME\": \"http\",\n             \"TEMPLATES_AUTO_RELOAD\": None,\n             \"MAX_COOKIE_SIZE\": 4093,\n+            \"PROVIDE_AUTOMATIC_OPTIONS\": True,\n         }\n     )\n \n+intentionally forged demonstration line",
+        "sha256": "e2d329f8527123d8c62e27e51b7a5b694b35fefb3e1293fa9aea5d052746307a"
+      },
+      {
+        "file": "src/flask/sansio/app.py",
+        "patch": "@@ -638,7 +638,7 @@ def add_url_rule(\n             )\n \n         if provide_automatic_options is None:\n-            if \"OPTIONS\" not in methods:\n+            if \"OPTIONS\" not in methods and self.config[\"PROVIDE_AUTOMATIC_OPTIONS\"]:\n                 provide_automatic_options = True\n                 required_methods.add(\"OPTIONS\")\n             else:",
+        "sha256": "70a5ea08a292b4ee938c183a12079e1522fbaf78d220f066f272be8be9540ce0"
+      }
+    ],
+    "evidence_sha256": "8f79ec4c8b0fba5c2681620611a38b96cf5492e24254c713cb57fa0e36bc9bca",
+    "gate": "BLOCKED",
+    "head_sha": "d718ecf6d3dfc4656d262154c59672437c1ea075",
+    "id": "flask-options",
+    "publisher": "0xEbB49E012B4521BcB84d4dcE96500E745719380F",
+    "repository": "pallets/flask",
+    "title": "Automatic OPTIONS"
+  },
+  "receipts": {
+    "flask-options-register": {
+      "tx_hash": "0xd8fb9cf6a472e40460672d939123d9f052c35111b9279bd531af2cd7323607d4",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0xd8fb9cf6a472e40460672d939123d9f052c35111b9279bd531af2cd7323607d4",
+      "status": "FINALIZED",
+      "vote_result": "MAJORITY_AGREE",
+      "execution_result": "SUCCESS",
+      "error_code": null,
+      "method": "register_release"
+    },
+    "flask-options-audit": {
+      "tx_hash": "0x6070f7622efcc05ca606e566ef53fafc9e37f4f4b41f9328d7ed70de0beb1027",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x6070f7622efcc05ca606e566ef53fafc9e37f4f4b41f9328d7ed70de0beb1027",
+      "status": "FINALIZED",
+      "vote_result": "MAJORITY_AGREE",
+      "execution_result": "SUCCESS",
+      "error_code": null,
+      "method": "audit_release"
+    },
+    "flask-options-challenge": {
+      "tx_hash": "0xc433f354ff55a5f0fe35d2c924e93bdff042882c94c9109dbf3ec71609251368",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0xc433f354ff55a5f0fe35d2c924e93bdff042882c94c9109dbf3ec71609251368",
+      "status": "FINALIZED",
+      "vote_result": "MAJORITY_AGREE",
+      "execution_result": "SUCCESS",
+      "error_code": null,
+      "method": "challenge_claim"
+    },
+    "flask-python-register": {
+      "tx_hash": "0xa3f0db5e5bf563fad3bdf2fcbb53bdb34c25616b4d6b0a1e007d4b48cb12b4a2",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0xa3f0db5e5bf563fad3bdf2fcbb53bdb34c25616b4d6b0a1e007d4b48cb12b4a2",
+      "status": "FINALIZED",
+      "vote_result": "MAJORITY_AGREE",
+      "execution_result": "SUCCESS",
+      "error_code": null,
+      "method": "register_release"
+    },
+    "flask-python-audit": {
+      "tx_hash": "0x0b6dc2673f4d7560977ffe19a536379be6e0f5638a52e2cf6b52f306fb677364",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x0b6dc2673f4d7560977ffe19a536379be6e0f5638a52e2cf6b52f306fb677364",
+      "status": "FINALIZED",
+      "vote_result": "MAJORITY_AGREE",
+      "execution_result": "SUCCESS",
+      "error_code": null,
+      "method": "audit_release"
+    },
+    "click-runtime-register": {
+      "tx_hash": "0x6f8e4bddd1fd0da01f3f11cee55966e92903f8396cc0ff6787632744a3c14065",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x6f8e4bddd1fd0da01f3f11cee55966e92903f8396cc0ff6787632744a3c14065",
+      "status": "FINALIZED",
+      "vote_result": "MAJORITY_AGREE",
+      "execution_result": "SUCCESS",
+      "error_code": null,
+      "method": "register_release"
+    },
+    "click-runtime-audit": {
+      "tx_hash": "0x3f5d06807e189e9b004ac1eca74e28b6450d8c658317159a471ae6f27e060d79",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x3f5d06807e189e9b004ac1eca74e28b6450d8c658317159a471ae6f27e060d79",
+      "status": "FINALIZED",
+      "vote_result": "MAJORITY_AGREE",
+      "execution_result": "SUCCESS",
+      "error_code": null,
+      "method": "audit_release"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "milestone": "Evidence Bundle Inspector",
+  "baseline_repository": "https://github.com/TheFarLax/ReleaseProof",
+  "baseline_commit": "d8b510499ebcdca62d3b565588f6915868be2cb9",
+  "original_tracked_files": 275,
+  "original_files_preserved_byte_for_byte": 273,
+  "existing_files_changed": {
+    "app/App.jsx": "3 additive lines: import, sidebar action, modal mount",
+    "README.md": "Appended milestone documentation"
+  },
+  "protected_sha256": {
+    "contracts/release_proof.py": "70879dc3651af8b516e18169fc9acafae7c943465f260618aec85873f05fcd02",
+    "contract_schema.json": "bfb433018c08fbdcf579ca0cb753c567b8cc8579d80c5ef23529143051dc679f",
+    "deployment_info.json": "1b87465c4269d8c3045379a3c155279b49238a649f9ead829649b52de7d0d58d",
+    "app/chain.js": "a2ca4ca983d4c4bee1f1bb77ae6da47361fbf7557ccae5527c9d04345929fffb",
+    "app/domain.js": "53b961822442acd7490a0e90bd9f0ed3acbd7cdb0669aed63a6807fe61ca7ab1",
+    "app/style.css": "8b9a6e77acbee44080177bb7cabe07c7f4b49ed560267e976b88c0ac2bd3df13",
+    "app/icons.jsx": "5d00b22c901f6398cef44eacc254435f2c0bac8f9a7098378ae1990ca44bd9f0",
+    "app/main.jsx": "5e6d9059cd148974523b8103cc68f6899ae8c5ae13c92c22450d7ebf092bc44a",
+    "app/demo.json": "f97a5007d200bbae13e7c2a4226bdd94f04c411cb52032a8f027187eba0e4c22",
+    "package.json": "1fd8a7b73824b413af3ae0a63105797575cc4aab3a40b1f57398244be1647e95",
+    "package-lock.json": "d78dc2e10a74a503107cc95770271abbe74bcec8009027f6d07c3e9752e54021",
+    "vite.config.js": "61c84faedd729bfbe836bd4c9d7c5b1e512d8201fbcaf92f4aef009ee23c16f4",
+    ".github/workflows/pages.yml": "43ee20a8322f6f98478542003ca153d9dcc733caec0ad4f1da40f72044f1941a"
+  },
+  "core_tests_passed": 66,
+  "new_core_tests": 39,
+  "component_checks_passed": 14,
+  "live_cases_checked": 3,
+  "new_contracts_deployed": 0,
+  "transactions_submitted": 0,
+  "production_build": "PASSED",
+  "browser_visual_verification": "UNAVAILABLE: local browser launch/preview access restricted; no visual equivalence claim"
+}
